@@ -13,11 +13,6 @@ end
 
 package 'mongodb'
 
-service 'mongodb' do
-	supports status: true, restart: true
-	action [:enable, :start]
-end
-
 template '/etc/mongod.conf' do
 	source 'mongod.conf.erb'
 end
@@ -25,3 +20,8 @@ end
  template '/lib/systemd/system/mongod.service' do
  	source 'mongod.service.erb'
  end
+
+service 'mongodb' do
+	supports status: true, restart: true
+	action [:enable, :start]
+end
