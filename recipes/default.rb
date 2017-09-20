@@ -20,7 +20,6 @@ end
 
 template '/etc/mongod.conf' do
 	source 'mongod.conf.erb'
-	notifies :reload, "service[mongodb]"
 end
 
  template '/lib/systemd/system/mongod.service' do
