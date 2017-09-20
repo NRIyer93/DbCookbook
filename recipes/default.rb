@@ -15,6 +15,7 @@ template '/etc/mongod.conf' do
 	notifies :reload, "service[mongodb]"
 end
 
-# template '/lib/systemd/system/mongod.service' do
-# 	source 'mongod.service.erb'
-# end
+ template '/lib/systemd/system/mongod.service' do
+ 	source 'mongod.service.erb'
+ 	notifies :reload, "service[mongodb]"
+ end

@@ -12,15 +12,16 @@ unless os.windows?
   end
 end
 
-# This is an example test, replace it with your own test.
 describe port(80) do
   it { should_not be_listening }
 end
 
+# Test to check if mongodb is installed
 describe package 'mongodb' do
 	it { should be_installed }
 end
 
+# Test to check if mongodb is both enabled and running
 describe service 'mongodb' do 
 	it {should be_running }
 	it {should be_enabled }
